@@ -3,12 +3,30 @@ import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import store from './redux/store';
-import Test from './Test';
+import Viagens from './Viagens';
+import ErrorPage from './ErrorPage';
+import Create from './Create';
 
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Viagens />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/criar",
+    element: <Create />,
+    errorElement: <ErrorPage />,
+  }
+]);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
-    <Test />
+    <RouterProvider router={router} />
   </Provider>
 );
 
