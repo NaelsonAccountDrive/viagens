@@ -3,7 +3,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const getViagens = createAsyncThunk(
-	"viagens/getViagens", async () => await axios.get("http://localhost:3002/viagens", {
+	"viagens/getViagens", async () => await axios.get("https://dialog.2wins.com.br/openai/viagens", {
 		headers: {
 			"Access-Control-Allow-Origin": "*",
 			"Access-Control-Allow-Headers": "Authorization",
@@ -17,7 +17,7 @@ export const postData = createAsyncThunk(
 	"viagens/postData",
 	async (data) => {
 		try {
-			const response = await axios.post("http://localhost:3002/viagens/update", data);
+			const response = await axios.post("https://dialog.2wins.com.br/openai/viagens/update", data);
 			return response;
 		} catch (err) {
 			console.error(err)
@@ -29,7 +29,7 @@ export const postInsert = createAsyncThunk(
 	"viagens/postInsert",
 	async (data) => {
 		try {
-			const response = await axios.post("http://localhost:3002/viagens/insert", data);
+			const response = await axios.post("https://dialog.2wins.com.br/openai/viagens/insert", data);
 			return response;
 		} catch (err) {
 			console.error(err)
